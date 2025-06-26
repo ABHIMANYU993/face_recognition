@@ -20,4 +20,5 @@ def get_face_embedding(frame):
 
 def cosine_similarity(vec1, vec2):
     """Calculate cosine similarity score between two 512D arrays."""
-    return np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+    # Explicitly calculate norms using float32 precision
+    return np.dot(vec1, vec2) / (np.linalg.norm(vec1).astype(np.float32) * np.linalg.norm(vec2).astype(np.float32))
