@@ -41,18 +41,18 @@ while True:
                     f"[ATTENDANCE] {name} marked at {datetime.now().strftime('%H:%M:%S')}"
                 )
                 bbox = face.bbox.astype(int)
-                # Drawing simple blue box initially
+                # Improved visual display
                 cv2.rectangle(
-                    frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 1
+                    frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (0, 255, 0), 2
                 )
                 cv2.putText(
                     frame,
-                    f"{name}",
-                    (bbox[0], bbox[1] - 5),
+                    f"{name} - Present",
+                    (bbox[0], bbox[1] - 10),
                     cv2.FONT_HERSHEY_SIMPLEX,
-                    0.5,
-                    (255, 0, 0),
-                    1,
+                    0.6,
+                    (0, 255, 0),
+                    2,
                 )
                 matched = True
                 break
