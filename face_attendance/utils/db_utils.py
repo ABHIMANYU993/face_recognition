@@ -1,8 +1,10 @@
 # utils/db_utils.py
+import os
 import sqlite3
 
 
 def create_db():
+    os.makedirs("database", exist_ok=True)
     conn = sqlite3.connect("database/students.db")
     c = conn.cursor()
     c.execute("""CREATE TABLE IF NOT EXISTS students (
