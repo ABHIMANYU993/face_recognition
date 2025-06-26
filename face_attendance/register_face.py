@@ -1,8 +1,8 @@
 # register_face.py
 import cv2
 import sqlite3
-import numpy as np
 
+# import numpy as np  # Unused import removed
 from utils.face_utils import get_face_embedding
 from utils.db_utils import create_db
 
@@ -12,9 +12,9 @@ cursor = conn.cursor()
 
 cap = cv2.VideoCapture("/home/icebyte/Projects/Personal/Python/Computer_Vision/face-recognition/face_attendance/test02.mp4")
 
-cv2.namedWindow("Register Face", cv2.WINDOW_NORMAL)
-cv2.resizeWindow("Register Face", 1920, 1080)
-cv2.moveWindow("Register Face", 0, 0)
+# cv2.namedWindow("Register Face", cv2.WINDOW_NORMAL)
+# cv2.resizeWindow("Register Face", 1920, 1080)
+# cv2.moveWindow("Register Face", 0, 0)
 
 print("[INFO] Press 's' to register, 'q' to quit")
 
