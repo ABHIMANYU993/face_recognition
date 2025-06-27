@@ -50,6 +50,7 @@ while True:
         student_id = input("Enter ID: ")
         cursor.execute(
             "INSERT OR REPLACE INTO students (id, name, embedding) VALUES (?, ?, ?)",
+            (student_id, name, embedding.tobytes()),
         )
         conn.commit()
         print(f"[INFO] {name} registered.")

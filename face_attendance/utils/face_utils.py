@@ -2,9 +2,9 @@
 import insightface
 import numpy as np
 
-# Load model using buffalo_l architecture on CUDA
+# Load model using buffalo_l architecture with CUDA and CPU fallbacks
 model = insightface.app.FaceAnalysis(
-    name="buffalo_l", providers=["CUDAExecutionProvider"]
+    name="buffalo_l", providers=["CUDAExecutionProvider", "CPUExecutionProvider"]
 )
 model.prepare(ctx_id=0)
 
