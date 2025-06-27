@@ -2,3 +2,8 @@
 numpy>=1.21.0
 opencv-python>=4.5.0
 insightface>=0.7.3
+onnxruntime-gpu>=1.15.0; platform_system == "Linux" and platform_machine == "x86_64"
+onnxruntime>=1.15.0; platform_system != "Linux" or platform_machine != "x86_64"
+mediapipe>=0.10.0
+scipy>=1.9.0
+scikit-image>=0.20.0
