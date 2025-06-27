@@ -1,16 +1,19 @@
 # register_face.py
+import os
 import cv2
 import sqlite3
 
 # import numpy as np  # Unused import removed
 from utils.face_utils import get_face_embedding
-from utils.db_utils import create_db
+from utils.db_utils import create_db, get_db_path
 
 create_db()
-conn = sqlite3.connect("database/students.db")
+conn = sqlite3.connect(get_db_path())
 cursor = conn.cursor()
 
-cap = cv2.VideoCapture("/home/icebyte/Projects/Personal/Python/Computer_Vision/face-recognition/face_attendance/test02.mp4")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+video_path = os.path.join(script_dir, "test02.mp4")
+cap = cv2.VideoCapture(video_path)
 
 # cv2.namedWindow("Register Face", cv2.WINDOW_NORMAL)
 # cv2.resizeWindow("Register Face", 1920, 1080)

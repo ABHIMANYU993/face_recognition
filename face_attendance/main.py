@@ -1,13 +1,14 @@
 # main.py
+import os
 import cv2
 import sqlite3
 import numpy as np
 from utils.face_utils import get_face_embedding, cosine_similarity
-from utils.db_utils import create_db
+from utils.db_utils import create_db, get_db_path
 from datetime import datetime
 
 create_db()
-conn = sqlite3.connect("database/students.db")
+conn = sqlite3.connect(get_db_path())
 cursor = conn.cursor()
 
 cursor.execute("SELECT id, name, embedding FROM students")
@@ -17,7 +18,9 @@ known = [
 ]
 
 attendance_set = set()
-cap = cv2.VideoCapture("/home/icebyte/Projects/Personal/Python/Computer_Vision/face-recognition/face_attendance/test02.mp4")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+video_path = os.path.join(script_dir, "test02.mp4")
+cap = cv2.VideoCapture(video_path)
 print("[INFO] Press 'q' to quit. Automatically marking attendance...")
 
 while True:
@@ -41,7 +44,6 @@ while True:
                     f"[ATTENDANCE] {name} marked at {datetime.now().strftime('%H:%M:%S')}"
                 )
                 bbox = face.bbox.astype(int)
-                # Improved visual display
                 cv2.rectangle(
                     frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (0, 255, 0), 2
                 )
