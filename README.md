@@ -4,6 +4,14 @@ An automated, real-time facial recognition and attendance tracking system built 
 
 The system performs facial detection and generates 512-dimensional embeddings for detected faces. It compares these embeddings with registered faces in an SQLite database using cosine similarity. When a match is found, attendance is automatically marked.
 
+## 📺 Project Demo
+
+<div align="center">
+
+https://github.com/user-attachments/assets/22c53bb1-d2e3-400d-8caa-4388f7908e3c
+
+</div>
+
 ---
 
 ## 📂 Project Structure
